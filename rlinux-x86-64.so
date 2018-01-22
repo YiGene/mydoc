@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/847179/multiple-glibc-libraries-on-a-single-host/48383224#48383224
+
+@Arkadiusz Rychliński
+
+it works even i got other errors which need to resolve separately.
+
+so the command should be 
+/mylibs/ld-linux-x86-64.so.2 --library-path /mylibs /bin/ldc2
