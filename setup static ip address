@@ -34,7 +34,7 @@ nameserver 192.168.1.1  # Replace with your nameserver ip
 
 
 For Ubuntu
-vi /etc/network/interface
+vi /etc/network/interfaces
 auto lo
 iface lo inet loopback
 #the primary network interface 
