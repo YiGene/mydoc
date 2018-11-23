@@ -1,0 +1,15 @@
+
+https://blog.csdn.net/davidsu33/article/details/50166743CONFIG(debug, debug|release) 这种语法是什么含义呢？
+两个参数，前者是要判断的active的选项，后者是互斥的选项的一个集合。
+Finally, CONFIG(debug, debug|release) evaluates to true if CONFIG contains "debug" but not "release", 
+or if it contains both "debug" and "release" but "release" doesn't appear after the last occurrence of "debug". 
+For example you might have this:
+
+CONFIG += release debug release debug release debug
+Since the last "debug" comes after the last "release", CONFIG(debug, debug|release) is true.
+
+The first argument of CONFIG() ("debug" in this case) is the value that has to appear last. 
+The second argument ("debug|release") is the set of values that the first argument is checked against.
+
+Translating that to English would give something like this: evaluate to true if "debug" appears at least once and, 
+in case "release" appears too, the last appearance of "debug" comes after the last appearance of "release".
