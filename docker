@@ -1,4 +1,48 @@
-sudo apt-get update
-sudo apt-get install docker.io
-sudo usermod -aG docker $USER
-re-login
+## List Docker CLI commands
+docker
+docker container --help
+
+## Display Docker version and info
+docker --version
+docker version
+docker info
+
+## Execute Docker image
+docker run hello-world
+
+## List Docker images
+docker image ls
+
+## List Docker containers (running, all, all in quiet mode)
+docker container ls
+docker container ls --all
+docker container ls -aq
+docker image ls 
+docker image history hello-world
+docker image inspect hello-world
+
+#download nginx
+docker pull nginx
+ 
+#run nginx
+docker run -p 80:80 nginx &
+
+docker image inspect nginx | jq .[].Config.ExposedPorts  # you can see the port is 80
+
+docker stop <container-id>  
+#or you can kill it
+
+docker kill <container-id>
+
+
+#list out all the docker serviers ,include running and stopped
+docker ps -a 
+
+#even the containers have been stopped the containers still exist in local system, to remove it use docker rm
+docker rm <container-id>
+
+#for the image, if you want to list all images 
+docker ps image ls
+
+#remove image , all the containers need to remove first
+docker rmi <image-id>
