@@ -46,3 +46,49 @@ docker ps image ls
 
 #remove image , all the containers need to remove first
 docker rmi <image-id>
+
+
+#docker build
+cd /folders
+vi Dockerfile
+ FROM ubuntu:latest
+ CMD echo Hello World!
+
+docker build . 
+ Sending build context to Docker daemon  129.4MB
+ Step 1/2 : FROM ubuntu:latest
+ latest: Pulling from library/ubuntu
+ 5b7339215d1d: Pull complete 
+ 14ca88e9f672: Pull complete 
+ a31c3b1caad4: Pull complete 
+ b054a26005b7: Pull complete 
+ Digest: sha256:9b1702dcfe32c873a770a32cfd306dd7fc1c4fd134adfb783db68defc8894b3c
+ Status: Downloaded newer image for ubuntu:latest
+  ---> 4c108a37151f
+ Step 2/2 : CMD echo Hello World!
+  ---> Running in 84d79db12573
+ Removing intermediate container 84d79db12573
+  ---> a82481293c7a
+ Successfully built a82481293c7a
+
+##test the new image
+$ docker run a82481293c7a
+Hello World!
+
+#add tag to the image so that have a nice name to trigger
+
+$ docker tag a82481293c7a mydocker:hello-world
+
+$ docker run mydocker:hello-world
+Hello World!
+
+docker volume create --name=nginx-volume
+
+docker volume inspect nginx-volume
+
+docker volume ls
+ DRIVER              VOLUME NAME
+ local               nginx-volume
+ 
+docker volume rm nginx-volume
+
