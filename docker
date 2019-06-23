@@ -92,3 +92,5 @@ docker volume ls
  
 docker volume rm nginx-volume
 
+#add tag
+docker   tag ea9c4d4b57b0 voume:test
