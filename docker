@@ -129,3 +129,11 @@ NETWORK ID          NAME                DRIVER              SCOPE
 99ef280c47cf        host                host                local
 df6a51a07088        none                null                local
 
+docker network inspect bridge
+
+docker network create database
+
+docker run -d --network database --name mysql -p 3306:3306 -eMYSQL_ROOT_PASSWORD=dontusethisinprod mysql   ##use this new network: database
+
+docker network connect database adminer => if you run the docker with default network, you can connect another one after start the container
+
