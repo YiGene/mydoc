@@ -120,6 +120,7 @@ ocker exec -it 8e1460701bbc bash   #i: interactive, t: tty
     }
 ]
 
+docker run -v $PWD/data1:/opt/data1 -it ubuntu /bin/bash  # by this way you can share the data between host and container
 
 
 ###Docker network
