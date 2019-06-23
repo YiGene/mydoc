@@ -119,3 +119,13 @@ ocker exec -it 8e1460701bbc bash   #i: interactive, t: tty
         "Scope": "local"
     }
 ]
+
+
+
+###Docker network
+[gene@gene-pc docker_volume]$ docker network ls
+NETWORK ID          NAME                DRIVER              SCOPE
+2e09d6fdacbd        bridge              bridge              local
+99ef280c47cf        host                host                local
+df6a51a07088        none                null                local
+
