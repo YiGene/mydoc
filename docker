@@ -94,3 +94,28 @@ docker volume rm nginx-volume
 
 #add tag
 docker   tag ea9c4d4b57b0 voume:test
+
+
+##bash mode with mount a volume. normally should write the volume into the docker file
+docker run -it --name volume-test --mount source=volume-test,target=/data-volume ubuntu bash
+
+docker run -it --name unbuntu_volume -v docker_volume:/home/gene/docker/docker_volume ubuntu bash
+
+docker run -d --name nginx-test  nginx
+#Open a terminal within the container:
+docker exec -t nginx-test bash
+#e.g  
+ocker exec -it 8e1460701bbc bash   #i: interactive, t: tty
+
+[docker_volume]$ docker volume inspect docker_volume
+[
+    {
+        "CreatedAt": "2019-06-23T14:02:34+08:00",
+        "Driver": "local",
+        "Labels": null,
+        "Mountpoint": "/var/lib/docker/volumes/docker_volume/_data",
+        "Name": "docker_volume",
+        "Options": null,
+        "Scope": "local"
+    }
+]
