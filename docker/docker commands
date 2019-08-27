@@ -164,3 +164,7 @@ volumes:
 
 ####build
 docker-compose up
+
+
+docker-gen: is  a tool which can help to you monitor, collect the logs (work with fluentd )
+https://github.com/jwilder/docker-gen
